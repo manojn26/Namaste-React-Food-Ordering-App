@@ -1,0 +1,190 @@
+5. Talk is cheap, show me the code :-
+---------------------------------------
+
+Comments :-
+{
+    //Single line Comments
+
+    /*
+    Multine line comment 
+    /*
+}
+
+JSX is not mandatory.
+Typescript is not mandatory
+ES6 is not mandatory
+
+
+
+JSX can only have parent element.
+If we put more than one line in compoent, we hvae to wrap that in <div>
+But if you dont want that, we use <React.Fragment>
+<React.Fragment> comes from React.
+<React.Fragment> is like a empty tag.
+
+Instead of React.Fragment we can write <></>
+<></> -> also called React.Fragment
+
+
+
+NEVER EVER WRITE CODE WITHOUT PLANNING
+
+React.Fragment :-
+------------------
+Is a Component exported by React.
+
+
+Props :-
+---------
+Pass data through the Components.
+Props - Properties
+
+At the end of the day our functional Component is function.
+
+function  fn(parsms){}
+fn(args)
+
+
+Without Destruturing :
+------------------------
+const Restraunt = (props)=>{
+    {props.restraunt.data}
+}
+
+With Destruturing :
+------------------------
+const Restraunt = ({restraunt})=>{
+    {props.restraunt.data}
+}
+
+
+<Restraunt restraunt />
+
+Virtual DOM :-
+---------------
+<head>
+    <body>
+        <Restraunt1>
+        <Restraunt2>
+            <img/>
+        <Restraunt3>
+    </body>
+</head>
+
+-> Virtual DOM is not just a concept of React.
+-> We keep a represntaton of DOM with us is known as Virtual DOM.
+-> Why do we need
+    - Reconciliation : 
+            - is an algorithm react uses, diff algorith. to differentiate one tree from another
+            - it determines what needs to change an UI, what doesnot needs change an UI
+            - It doesnto reredner entire application, it will update particular piece of UI.
+            it uses keys for differentiates
+            - If tags are differntes it uniquely identifies.
+            - But if multiple same tags, we need pass unique keys, re render everything.
+
+HW :
+    Virtual DOM
+    Reconciliation
+    diff algorithm
+    React Fiber (new Reconciliation engine came in React 16)
+
+-> Usually we render data from Array, we can't use key as index.
+
+
+Congif Driven UI :
+config driven UI; baceknd should control our data
+
+
+6. Let's get Hooked :-
+-----------------------
+It is not necessory to any folder in our project.
+But we need to wrap our code proper folder structire, that gives us better modular approach,
+
+Two ways of exporting :-
+------------------------------
+export default Name;
+import Name from ".../" :- Default import 
+
+-> We cant export two or more things in default.
+-> We can export only one thing in default.
+
+export const Title = ()=>{} :- Named export
+import {Title} from "../" :- Named import
+
+export { Title }
+import { Title } from "../"
+
+export { Name1, Name2 }
+import { Name1, Name2 } from "../"
+
+export const Title = ()=>{}
+export const Header = ()=>{}
+import * as obj from "../"
+
+
+Filenames :-
+.jsx -> its because of the file contains jsx code.
+We can use .jsx or .js and .ts or .tsx
+
+
+When importing we can write file-extensions also.
+
+constants.js:-
+------------
+Put all your hard coded things.
+
+Input :-
+--------
+When we write input tag in HTML it will work normally.
+But It wont work in React.
+
+React uses one way data binding.
+
+Whenever we need to change value in React, we need to use useState()
+
+useState() :-
+    - It returns an Array.
+    - first value of the Array is variable.
+    - If you want to modify the variable, you directly cant modify it.
+    - We can modify that variable using function.
+
+    - second value of the Array is function.
+    - this function is used to modify the variable.
+
+    - Now we make two way binding with these concept.
+
+    Why do we need state variables :-
+        - Every time we want our variables with sync with UI.
+        - React keeps tracking the variables.
+
+    useState() -> returns [variable name, function to update the variable]
+    
+
+- In React input doesnot work like HTML
+- When we write input we need to do data  binding to it.
+
+
+Hooks :-
+    - Hooks are nothing its a javascript function at the end of the day.
+    - These Hooks are written by Facebook Developers, The Hooks are gave some functionalities.
+
+
+08 - Exploring The World :-
+-----------------------------
+React is very fast because of VirtualDOM, Reconciliation, Diff algorithm.
+
+Our HTML will be in TreeStructure, 
+    In React it will be in VirtualDOM.
+        Whenever any changes happened in Nodes, It re-renders the TreeStructure.
+
+    VirtualDOM :
+         - Representaion of DOM
+         - At the end of the day, it is kind of like Javascript Object.
+         - It makes Fast DOM Manipulation. (It uses React Fiber(Diff Algorithm))
+         - 
+
+When state variables got updated, it re-renders the entire component.
+
+
+
+
