@@ -185,6 +185,63 @@ Our HTML will be in TreeStructure,
 
 When state variables got updated, it re-renders the entire component.
 
+Microservices :-
+-----------------
 
+Monolith :
+    When developing a application on old days, it will be single big application.
+
+The world moving towards Microservices.
+
+Microservices :
+    Instead of having one big project.
+    We have small small projects.
+
+    Advantages :
+        - Easy to maintain.    
+
+Our Project is  - UI Microservice
+
+
+Calling API :-
+--------------
+1. Loads => API call => render page
+             (300 ms)       (500 ms)
+
+2. Loads => render => API => Update UI
+    - second one is best, because of user experience.
+    - we can achieve this process using useEffect()
+
+
+useEffect() :-
+--------------
+inside useEffect we need pass callback function and dependency array.
+
+    - the callback function is called, whenever the useEffect is called
+    - it will be called every re-render, but we dont want this thing.
+    - if we dont want to call it after re-render pass it dependency array.
+
+    - we can control our useEffect by using dependency array, when dependency array value got changes the useEffect will be executed.
+
+    Empty Dependency - once after render
+    Dependency Array - once after initial render + everytime after render
+
+
+Browser blocking for talk with Swiggy.
+use cors chromes plugin.
+
+Shimmer Effect - Show empty skeloton for UI before loading the API data on users browsers.
+
+Conditional Rendering :-
+-------------------------
+
+JSX :-
+--------
+{
+    Javascript expressions will work on JSX
+    But statements will not work
+}
+
+React Native uses same Diff Algorithm as React.
 
 
