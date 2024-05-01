@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import Logo from "../assests/images/logo.jpeg"
+import { Link } from "react-router-dom";
 
 const Title = () => {
     return (
@@ -7,7 +8,7 @@ const Title = () => {
             <img
                 className='logo'
                 alt='Logo-Image'
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsRDkQoLVDDilFi-J1TbbGr5Xf3YCRP3UjKg&s'
+                src={Logo}
             />
         </a>
     );
@@ -15,14 +16,22 @@ const Title = () => {
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    // useEffect(() => {
+    //     console.log("use effect from Header");
+    // }, [isLoggedIn])
+
+    // console.log("render on Header");
+
+
     return (
         <div className='header'>
             <Title />
             <div className='nav-items'>
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <Link to="/"><li>Home</li></Link>
+                    <Link to="/about"><li>About</li></Link>
+                    <Link to="/contact"><li>Contact</li></Link>
                     <li>Cart</li>
                 </ul>
             </div>

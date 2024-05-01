@@ -215,6 +215,9 @@ Calling API :-
 
 useEffect() :-
 --------------
+
+useEffect is called after the component is rendered.
+
 inside useEffect we need pass callback function and dependency array.
 
     - the callback function is called, whenever the useEffect is called
@@ -244,4 +247,40 @@ JSX :-
 
 React Native uses same Diff Algorithm as React.
 
+
+09. Finding the Path :-
+------------------------
+Don't create component inside component.
+Dont write useState inside if() condition.
+Dont write useState inside loops.
+
+useState :-
+    - useState is a Hook that react gives to create local state variables inside function compoents.
+    - never use a useState outside in our functional compoent.
+
+we can create more than one useEffect in our component
+
+useEffect :
+    - if we dont pass dependency array it will be execute every render
+    - if empty dependency array it will be execute once on initial render
+    - if we pass state variable to dependency array it will execute whenever the state variable got changed.
+
+
+Routing :-
+-----------
+react-router
+npm i react-router-dom
+
+SPA : Single Page Application :-
+--------------------------------
+It dont make networks call to fetch the pages.
+
+Two types of routing :-
+    -> client side routing
+    -> server side routing
+
+    - server side routing :
+        All our pages coming from server.
+    
+dynamic routing
 

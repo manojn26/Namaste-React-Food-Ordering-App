@@ -32,3 +32,10 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.shimmer-card {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(198, 196, 196);
+  margin: 20px;
+}

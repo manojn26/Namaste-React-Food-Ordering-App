@@ -110,7 +110,7 @@ const Body = () => {
     // not render component (Early return)
     if (!allRestraunts) return null;
 
-    if (filteredRestraunts?.length === 0) return <h1>No Restraunt Match your filter</h1>
+    // if (filteredRestraunts?.length === 0) return <h1>No Restraunt Match your filter</h1>
 
     return (allRestraunts.length === 0) ? <Shimmer /> : (
         <>
