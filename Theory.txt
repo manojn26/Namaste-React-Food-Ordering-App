@@ -284,3 +284,102 @@ Two types of routing :-
     
 dynamic routing
 
+
+10. Lets get Classy :-
+-----------------------
+
+Class Based Components :-
+--------------------------
+When react started the concept of components starts with Class Based.
+Earlier React uses just only Class Based Components.
+There is no functional components.
+There is not concept of Hooks.
+
+In Earlier it will bit very painful to write code.
+But it do some magicl stuff also on that time, because on that time peoples are coming from Jquery it seems very Easy to most of the people.
+
+NOTE :
+    Class Based Components are no longer used.
+
+We can do almost everything using function based components.
+
+
+functional components are at the end of the day is functions.
+Class based components are at the end of the day is Class.
+
+
+- render() method is very important in Class based component.
+
+Every Class is a Life Cycle.
+    - first constructor is called.
+    - then component is rendered.
+    - componentDidMount
+
+Where do we call API in Class Component :-
+    we can call API componentDidMount()
+
+Exeuting step by step :
+constructor
+render from class component
+componentDidMount
+
+Child and Parent :- (Child - Profile & Parent - About)
+-------------------
+About Component Contructor
+About Component Render
+Profile Component Constructor
+Profile Component Render
+Profile Component Did Mount
+About Component Did Mount
+
+Mount : means Loads
+
+-> When React is rendering things up, it does it in two phases
+    1. first phase is render 
+    2. second phase is commit 
+
+  -> React first of all finishes the render phase.
+        - in render phase constructor is called and render method is called.
+
+  -> commit phase is the place where the React is actually modifying our DOM.
+  -> componentDidMount is done after updating our DOM.
+
+
+We can use async for componentDidMount.
+We cant use async for useEffect.
+
+/*
+    Parent Constrcutor
+    Parent Render
+        First Child Constructor
+        First Child Render
+        Second Child Constructor
+        Second Child Render
+        First Child Component Did Mount
+        Second Child Component Did Mount
+    Parent Component Did Mount 
+ 
+*/
+
+Re-render Cycle is known as Updating.
+
+
+componentDidMount -> is called after first render
+componentDidUpdate -> after updating the DOM
+componentWillUnmount -> go to anther page
+
+React is single page application(SPA).
+In a component you will make an setIntervall() it will be called on every component. 
+You need clear the interval on componentWillUnmount()
+
+
+Never ever compare react Life Cycle methods to functional component.
+
+useEffect will be called each and every render.
+after first render componentDidMount is called.
+    after every subsequent render it is updated.
+
+    
+
+
+

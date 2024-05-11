@@ -8,6 +8,7 @@ import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 import RestrauntMenu from "./components/RestrauntMenu";
+import Profile from "./components/ProfileClass";
 
 // Example of Congif Driven UI
 // const config = [
@@ -87,6 +88,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          {
+            path: "profile", //localhost:1234/about/profile
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",
