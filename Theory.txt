@@ -381,5 +381,40 @@ after first render componentDidMount is called.
 
     
 
+11. Optimizing our App :-
+---------------------------
+Code splitting, lazy loading, building own Hook.
 
+when we splitting our code :
+    - readibality
+    - maintainability
+    - easy debugging
+    - testables
+
+Hooks are at the end of the day its a functions.
+
+Why should we even build hooks ?
+    - reusability
+    - readibality
+    - speration of concerns
+    - maintainability
+    - modularity - broken down code into meaningfull pieces
+    - we can wrap up small logic, we can use it wherever we want.
+
+- Hooks are starts with "use"
+
+
+
+lazy() importing :-
+    Chunking
+    Code splitting
+    Dynamic Bundling
+    Lazy loading
+    Ondemand loading
+    Dynamic import
+
+NOTE :
+    - Never ever dynamically load your component inside another component.
+    - lazy load on top of the Component.
+    
 

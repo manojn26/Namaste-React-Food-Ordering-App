@@ -1,14 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; //named import
-import About from "./components/About";
+// import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Profile from "./components/ProfileClass";
+import Shimmer from "./components/Shimmer";
+// import InstaMart from "./components/InstaMart";
 
 // Example of Congif Driven UI
 // const config = [
@@ -45,6 +47,11 @@ import Profile from "./components/ProfileClass";
 // ];
 
 // This is known as config driven UI; baceknd should control our data
+
+const InstaMart = lazy(() => import("./components/InstaMart"));
+// Upon On Demand loading -> upon render -> suspend loading
+
+const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
   return (
@@ -87,7 +94,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile", //localhost:1234/about/profile
@@ -102,6 +113,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/restraunt/:id",
         element: <RestrauntMenu />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <InstaMart />
+          </Suspense>
+        ),
       },
     ],
   },

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Logo from "../assests/images/logo.jpeg"
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Title = () => {
     return (
@@ -23,6 +24,8 @@ const Header = () => {
 
     // console.log("render on Header");
 
+    const isOnline = useOnline()
+
 
     return (
         <div className='header'>
@@ -33,8 +36,10 @@ const Header = () => {
                     <Link to="/about"><li>About</li></Link>
                     <Link to="/contact"><li>Contact</li></Link>
                     <li>Cart</li>
+                    <Link to="/instamart"><li>Instamart</li></Link>
                 </ul>
             </div>
+            <h1>{isOnline ? "🟢" : "🔴"}</h1>
             {
                 isLoggedIn ? <button onClick={() => setIsLoggedIn(!isLoggedIn)}>Logout</button> : <button onClick={() => setIsLoggedIn(!isLoggedIn)}>Login</button>
             }

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
-
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 // const restrauntData = [
 //     {
@@ -70,14 +71,7 @@ import Shimmer from "./Shimmer";
 
 // ];
 
-const filterData = (searchText, restaurants) => {
 
-    const filteredData = restaurants.filter((res) => {
-        return res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
-    })
-
-    return filteredData
-}
 
 
 const Body = () => {
@@ -105,6 +99,12 @@ const Body = () => {
         setFilteredRestraunts(realAPIData)
 
         console.log(realAPIData);
+    }
+
+    const isOnline = useOnline();
+
+    if (!isOnline) {
+        return <h1>🔴It seems to be your in Offline please check your internet connection</h1>
     }
 
     // not render component (Early return)
