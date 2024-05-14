@@ -115,20 +115,22 @@ const Body = () => {
     return (allRestraunts.length === 0) ? <Shimmer /> : (
         <>
 
-            <div className="search-container">
-                <input type="text" className="search-input" placeholder="Search...." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+            <div className="search-container p-5 bg-pink-50 my-5">
+                <input type="text" className="focus:bg-green-50 p-2 m-2" placeholder="Search...." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
 
-                <button className="search-button" onClick={() => {
-                    // need to filter the data
-                    // update the data
+                <button
 
-                    const data = filterData(searchText, allRestraunts)
-                    setFilteredRestraunts(data)
+                    className="search-button p-2 m-2 bg-green-900 text-white rounded-md" onClick={() => {
+                        // need to filter the data
+                        // update the data
 
-                }}>Search</button>
+                        const data = filterData(searchText, allRestraunts)
+                        setFilteredRestraunts(data)
+
+                    }}>Search</button>
             </div>
 
-            <div className='restraunt-list'>
+            <div className='restraunt-list flex flex-wrap justify-center bg-purple-400'>
                 <RestrauntCard restrauntData={filteredRestraunts} />
             </div>
         </>

@@ -7,7 +7,7 @@ const Title = () => {
     return (
         <a href='/'>
             <img
-                className='logo'
+                className='h-28 p-2'
                 alt='Logo-Image'
                 src={Logo}
             />
@@ -28,15 +28,16 @@ const Header = () => {
 
 
     return (
-        <div className='header'>
+        <div className='flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50'>
             <Title />
             <div className='nav-items'>
-                <ul>
-                    <Link to="/"><li>Home</li></Link>
-                    <Link to="/about"><li>About</li></Link>
-                    <Link to="/contact"><li>Contact</li></Link>
-                    <li>Cart</li>
-                    <Link to="/instamart"><li>Instamart</li></Link>
+                <ul className="flex py-10">
+                    <li className="px-2"><Link to="/">Home</Link></li>
+                    <li className="px-2"><Link to="/about">About</Link></li>
+                    <li className="px-2"><Link to="/contact">Contact</Link></li>
+                    <li className="px-2">Cart</li>
+                    <li className="px-2"><Link to="/instamart">Instamart</Link></li>
+
                 </ul>
             </div>
             <h1>{isOnline ? "🟢" : "🔴"}</h1>

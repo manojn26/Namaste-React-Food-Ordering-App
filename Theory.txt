@@ -418,3 +418,51 @@ NOTE :
     - lazy load on top of the Component.
     
 
+12. Jo dikhta hai vo bikta hai :-
+-----------------------------------
+Meaning : What you see is that what sells.
+
+- How to write CSS in our projects.
+    - style sheet, style.css (basic way)
+
+Various ways to write CSS.
+    - SCSS (SASS)
+    - inline
+    - libraries : MaterialUI, BaseUI, Ant, Chakra
+    - styled components
+
+Good practice to use single framework and single libraries.
+
+Disadvantages :
+- Bundle size makes heavy
+- loose over control
+
+
+
+Tailwind CSS :-
+---------------
+Tailwind comes with mix of things.
+
+    - Write CSS on the go (in the same file)
+    - reusability
+    - comes with lots of prebuilt classes
+    - less bundle size
+    - flexible UI (we can customizable)
+
+Every styles that we put in it all are class names.
+
+Instalation Guide for Parcel :-
+--------------------------------
+npm install -D tailwindcss postcss
+npx tailwindcss init 
+
+npm -> is to installing the packages
+npx -> is to execute tha packages directly
+
+postcss :
+    - is a tool for tranforming CSS with Javascript
+    - 
+
+
+w-[250px] -> use this syntax for custom values.
+
