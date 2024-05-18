@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,8 +8,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; 
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 import RestrauntMenu from "./components/RestrauntMenu";
-import Profile from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
+import ProfileClass from "./components/ProfileClass";
+import ProfileFunction from "./components/Profile";
+import UserContext from "./utils/userContext";
 // import InstaMart from "./components/InstaMart";
 
 // Example of Congif Driven UI
@@ -54,6 +56,11 @@ const InstaMart = lazy(() => import("./components/InstaMart"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Manoj",
+    email: "manoj@support.com",
+  });
+
   return (
     /*
             Header
@@ -72,13 +79,11 @@ const AppLayout = () => {
                 - Links
                 - Copyrights
         */
-    <>
+    <UserContext.Provider value={{ user: user, setUser: setUser }}>
       <Header />
-      {/* {Outlet} */}
-
       <Outlet />
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 };
 
@@ -90,7 +95,14 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: (
+          <Body
+            user={{
+              name: "Manoj",
+              email: "manoj@gmail.com",
+            }}
+          />
+        ),
       },
       {
         path: "/about",
@@ -102,7 +114,7 @@ const appRouter = createBrowserRouter([
         children: [
           {
             path: "profile", //localhost:1234/about/profile
-            element: <Profile />,
+            element: <ProfileClass />,
           },
         ],
       },

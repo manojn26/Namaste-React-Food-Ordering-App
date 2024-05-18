@@ -466,3 +466,50 @@ postcss :
 
 w-[250px] -> use this syntax for custom values.
 
+13. Data is the New Oil :-
+---------------------------
+Handling data is one of the most crucial part in developing web applications.
+
+UI Layer -> Data Layer
+
+Babel converts JSX into Big Javascript plain Object. (The Object is virtual DOM)
+
+The whole UI Layer is powered by Data Layer.
+Manage the Data Layer with state and props.
+
+State and Props :-
+-------------------
+pass data from one component to another component.
+
+
+Passing data from one component to another :
+    App Layout
+        {user}
+            Body -> user
+                RestrauntCard   -> user
+                    p -> user.name
+    -> the above process is known as prop drilling. (Passing data from parent component to child component)
+
+In large application the heirarchy will be increased.
+In large application of we change this props in any component, it will re-render all components.
+
+Lifting the state up :-
+    -> giving control to parent, instead of children.
+
+
+Same data across all our app, it should be in central state.
+React gives a way to store data in central state is called Context.
+
+Context :-
+-----------
+createContext is a function.
+useContext is a function.
+
+Yes we can multiple Context in our application.
+
+State and props are tight to the Component.
+Context is central store. Context is like useState it belongs to all our application.
+
+
+
+

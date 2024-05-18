@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/userContext";
 
 // const restrauntData = [
 //     {
@@ -81,6 +82,8 @@ const Body = () => {
     const [filteredRestraunts, setFilteredRestraunts] = useState([])
     const [allRestraunts, setAllRestraunts] = useState([])
 
+    const { user, setUser } = useContext(UserContext)
+
 
     // console.log("Render"); When state variables changes it re-render the entire component
 
@@ -128,10 +131,23 @@ const Body = () => {
                         setFilteredRestraunts(data)
 
                     }}>Search</button>
+
+                <input type="text" value={user?.name} onChange={(e) => setUser({
+                    ...user,
+                    name: e.target.value,
+
+                })} />
+
+                <input type="text" value={user?.email} onChange={(e) => setUser({
+                    ...user,
+                    email: e.target.value
+                })} />
+
+
             </div>
 
             <div className='restraunt-list flex flex-wrap justify-center bg-purple-400'>
-                <RestrauntCard restrauntData={filteredRestraunts} />
+                <RestrauntCard restrauntData={filteredRestraunts} user={user} />
             </div>
         </>
     );
