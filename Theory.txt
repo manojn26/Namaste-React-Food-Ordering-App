@@ -511,5 +511,53 @@ State and props are tight to the Component.
 Context is central store. Context is like useState it belongs to all our application.
 
 
+14. Let's Build Our Store :-
+-----------------------------
+Two layers in web application :
+    1. UI Layer : What you see.
+    2. Data Layer : Passing data, managing states, Context
+    These two layers work together.
 
+Redux :-
+--------
+State management library.
+Manage data layer of our application.
+
+To avoid prop drilling we use ContextAPI.
+
+Problems with Redux :
+    -> it very complex to setup.
+    -> huge learning curve.
+
+Difference between Redux and Reduxtoolkit :
+The Redux Toolkit package is intended to be the standard way to write Redux logic. 
+It was originally created to help address three common concerns about Redux:
+
+    "Configuring a Redux store is too complicated"
+    "I have to add a lot of packages to get Redux to do anything useful"
+    "Redux requires too much boilerplate code"
+
+Reduxstore is at the end of the day is like a Big All Object.
+Slice is a small portion of our store.
+
+Adding Items to Cart :
+    -> when we click the "ADD TO CART" Button it dispatches an action which calls a function.
+    -> Which modifies the Slice of the store.
+    -> The function is known as reducer.
+    -> If we want to read the Cart, we can use selector for that. selector also called Subscribing to the store.
+
+    "ADD TO CART" -> dispatches(action) -> reducer(function)  (updates) -> Slice  -> to read that use selector.
+
+
+We need to install to libraries :
+    - npm i @reduxjs/toolkit : maintain the store, create the Slice. It is core of React.
+    - npm i react-redux : Bridge between React and Redux.
+
+
+We can put this store provider to whole app or we can put provider to certain components.
+-> Creating Slice is core job of ReduxToolkit.
+
+useSelector()
+    - to subscribing to the store.
+    - this is the place you will tell what your subscribing to.
 

@@ -12,6 +12,10 @@ import Shimmer from "./components/Shimmer";
 import ProfileClass from "./components/ProfileClass";
 import ProfileFunction from "./components/Profile";
 import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
+
 // import InstaMart from "./components/InstaMart";
 
 // Example of Congif Driven UI
@@ -79,11 +83,14 @@ const AppLayout = () => {
                 - Links
                 - Copyrights
         */
-    <UserContext.Provider value={{ user: user, setUser: setUser }}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
+
+    <Provider store={store}>
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -133,6 +140,10 @@ const appRouter = createBrowserRouter([
             <InstaMart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

@@ -3,6 +3,8 @@ import Logo from "../assests/images/logo.jpeg"
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
+import store from "../utils/store";
 
 const Title = () => {
     return (
@@ -28,6 +30,9 @@ const Header = () => {
     const isOnline = useOnline()
 
     const { user } = useContext(UserContext)
+    const cartItems = useSelector(store => store.cart.items)
+
+    console.log(cartItems);
 
 
     return (
@@ -38,8 +43,8 @@ const Header = () => {
                     <li className="px-2"><Link to="/">Home</Link></li>
                     <li className="px-2"><Link to="/about">About</Link></li>
                     <li className="px-2"><Link to="/contact">Contact</Link></li>
-                    <li className="px-2">Cart</li>
                     <li className="px-2"><Link to="/instamart">Instamart</Link></li>
+                    <li className="px-2"><Link to="/cart">Cart - {cartItems.length} Items</Link></li>
 
                 </ul>
             </div>
